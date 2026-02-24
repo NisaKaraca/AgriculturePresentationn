@@ -1,21 +1,16 @@
-﻿using EntityLayer.Concrete;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Contexts
 {
     public class AgricultureContext : IdentityDbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AgricultureContext(DbContextOptions<AgricultureContext> options)
+            : base(options)
         {
-            optionsBuilder.UseSqlServer(
-                "Server=LAPTOP-CRNMNEV7\\SQLEXPRESS;Database=DbAgriCulture1;Integrated Security=True;TrustServerCertificate=True;");
         }
+
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Image> Images { get; set; }
