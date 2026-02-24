@@ -1,0 +1,101 @@
+﻿@using EntityLayer.Concrete
+@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_HeadPartial")
+<body id="home">
+    <div class="header">
+        <div class="container">
+            @await Component.InvokeAsync("_TopAddressPartial")
+
+            @await Component.InvokeAsync("_SocialMediaPartial")
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("_NavbarPartial")
+
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">Kapat</button>
+
+                    <h4>InHarvest Tarım Teknolojileri</h4>
+
+                    <img src="~/OOP_Core_Templates/web/images/banner1.jpg" alt=" " class="img-responsive">
+
+                    <h5>Çevre ve Sürdürülebilirlik</h5>
+
+                    <p>
+                        Tarım sektöründe sürdürülebilir üretimi desteklemek amacıyla modern teknolojiler ve
+                        yenilikçi ekipmanlar kullanmaktayız. Doğal kaynakların verimli kullanılması ve enerji
+                        tasarrufu sağlayan çözümler ile çevre dostu üretim süreçlerini desteklemeyi hedefliyoruz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">Kapat</button>
+
+                    <h4>InHarvest Tarım Teknolojileri</h4>
+
+                    <img src="~/OOP_Core_Templates/web/images/banner1.jpg" alt=" " class="img-responsive">
+
+                    <h5>Dünya Çapında Tarım Çözümleri</h5>
+
+                    <p>
+                        Yeni nesil tarım teknolojileri ile üretim süreçlerini daha verimli hale getiriyoruz.
+                        Geliştirdiğimiz yenilikçi ürün ve çözümler sayesinde çiftçilerin üretim kapasitesini
+                        artırarak ekonomik kazanç sağlamalarına destek oluyoruz.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_AboutPartial")
+
+    @await Component.InvokeAsync("_ServicePartial")
+
+    @await Component.InvokeAsync("_TeamPartial")
+
+    @await Component.InvokeAsync("_AnnouncementPartial")
+
+    @await Component.InvokeAsync("_GalleryPartial")
+
+  
+    <div class="contact-agile" id="contact">
+        <div class="container">
+
+            @await Component.InvokeAsync("_AddressPartial")
+
+            @await Html.PartialAsync("/Views/Default/SendMessage.cshtml")
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_MapPartial")
+    <div class="copy">
+        <p>© @DateTime.Now.Year In Harvest . Tüm Hakları Saklıdır | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
+    </div>
+
+
+    @await Html.PartialAsync("/Views/Default/ScriptPartial.cshtml")
+
+</body>
+</html>

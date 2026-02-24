@@ -1,0 +1,62 @@
+﻿@model EntityLayer.Concrete.Announcement
+@{
+    ViewData["Title"] = "EditAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="card-title mb-1">Duyuru Güncelle</h4>
+                    <p class="text-muted mb-0" style="font-size:13px;">Mevcut duyuruyu düzenleyebilirsin.</p>
+                </div>
+
+                <a href="/Announcement/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                    <i class="mdi mdi-arrow-left mr-1"></i>
+                    Listeye Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x => x.AnnouncementID)
+                @Html.HiddenFor(x => x.Status)
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" placeholder="Başlık giriniz" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Tarih</label>
+                    <input type="date" class="form-control" asp-for="Date" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea rows="5" asp-for="Descripe" class="form-control" placeholder="Açıklama giriniz"></textarea>
+                    <span asp-validation-for="Descripe" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-check-circle-outline mr-1"></i>
+                        Güncelle
+                    </button>
+
+                    <a href="/Announcement/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline mr-1"></i>
+                        Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

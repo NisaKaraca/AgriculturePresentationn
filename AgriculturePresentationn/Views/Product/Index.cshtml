@@ -1,0 +1,90 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+@{
+    ViewData["Title"] = "Ürünler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div>
+                        <h4 class="card-title mb-1">Ürün Listesi</h4>
+                        <p class="text-muted mb-0" style="font-size:13px;">
+                            Ürün kayıtlarını buradan yönetebilir ve grafiğe geçebilirsin.
+                        </p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <a href="/Product/AddProduct" class="btn btn-outline-info btn-sm d-inline-flex align-items-center">
+                            <i class="mdi mdi-plus-circle-outline mr-1"></i>
+                            Yeni Ürün
+                        </a>
+
+                        <a href="/Chart/Index" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center">
+                            <i class="mdi mdi-chart-line mr-1"></i>
+                            Grafiğe Git
+                        </a>
+
+                        <a href="/Report/ProductReport" class="btn btn-outline-success btn-sm d-inline-flex align-items-center">
+                            <i class="mdi mdi-file-excel-outline mr-1"></i>
+                            Excel’e Aktar
+                        </a>
+                    </div>
+                </div>
+
+                <div class="table-responsive pt-2">
+                    <table class="table table-hover table-bordered align-middle">
+                        <thead class="thead-light">
+                            <tr>
+                                <th style="width:90px;">ID</th>
+                                <th>Ürün</th>
+                                <th style="width:140px;">Değer</th>
+                                <th style="width:160px;" class="text-center">Düzenle</th>
+                                <th style="width:140px;" class="text-center">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="badge badge-outline-dark">@item.ProductId</span>
+                                    </td>
+                                    <td class="font-weight-medium">@item.Name</td>
+                                    <td>@item.Value</td>
+
+                                    <td class="text-center">
+                                        <a href="/Product/EditProduct/@item.ProductId"
+                                           class="btn btn-outline-success btn-sm d-inline-flex align-items-center">
+                                            <i class="mdi mdi-pencil-outline mr-1"></i>
+                                            Güncelle
+                                        </a>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="/Product/DeleteProduct/@item.ProductId"
+                                           class="btn btn-outline-danger btn-sm d-inline-flex align-items-center"
+                                           onclick="return confirm('Bu ürünü silmek istediğine emin misin?');">
+                                            <i class="mdi mdi-delete-outline mr-1"></i>
+                                            Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <small class="text-muted">Toplam ürün: <b>@Model?.Count</b></small>
+                        <small class="text-muted">Son görüntüleme: <b>@DateTime.Now.ToString("dd.MM.yyyy")</b></small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Ürün Grafiği";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4 class="card-title">Ürün Dağılım Grafiği</h4>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <a href="/Product/Index" class="btn btn-outline-secondary btn-sm">Ürün Listesine Dön</a>
+                </div>
+
+                <div id="chartdiv" style="width:100%; height:500px"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        $.ajax({
+            type: 'GET',
+            url: '/Chart/ProductChart',
+            success: function (chartsdata) {
+
+                var Data = chartsdata.jsonlist;
+
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Ürün');
+                data.addColumn('number', 'Değer');
+
+                for (var i = 0; i < Data.length; i++) {
+                    data.addRow([Data[i].productname, Data[i].productvalue]);
+                }
+
+                var chart = new google.visualization.PieChart(document.getElementById('chartdiv'));
+                chart.draw(data, {
+                    title: "Ürün Dağılımı (DB)",
+                    legend: { position: 'right' }
+                });
+            },
+            error: function () {
+                alert("Grafik verisi çekilemedi. /Chart/ProductChart endpoint'ini kontrol et.");
+            }
+        });
+    }
+
+</script>

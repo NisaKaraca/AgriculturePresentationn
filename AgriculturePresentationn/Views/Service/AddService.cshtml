@@ -1,0 +1,55 @@
+﻿@model AgriculturePresentationn.Models.ServiceAddViewModel
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="card-title mb-1">Yeni Hizmet Kaydı</h4>
+                    <p class="text-muted mb-0" style="font-size:13px;">Yeni bir hizmet ekleyin.</p>
+                </div>
+
+                <a href="/Service/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                    <i class="mdi mdi-arrow-left mr-1"></i>
+                    Listeye Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Örn: Organik Tahıllar" />
+                </div>
+
+                <div class="form-group">
+                    <label>Görsel</label>
+                    <input type="text" class="form-control" asp-for="Image" placeholder="Örn: /images/service1.jpg" />
+                    <small class="text-muted">İpucu: URL veya proje içi yol yazabilirsin.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="Description" rows="4" placeholder="Kısa açıklama..."></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-info btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-content-save-outline mr-1"></i>
+                        Kaydet
+                    </button>
+
+                    <a href="/Service/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline mr-1"></i>
+                        Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

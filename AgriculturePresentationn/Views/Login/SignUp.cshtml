@@ -1,0 +1,106 @@
+﻿@model AgriculturePresentationn.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Majestic Admin</title>
+
+    <link rel="stylesheet" href="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/vendors/base/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/css/style.css">
+    <link rel="shortcut icon" href="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/images/favicon.png" />
+
+    <style>
+        .auth-links {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #e5e5e5; 
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d; 
+        }
+
+        .auth-links a {
+            display: inline-block;
+            margin-left: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #0d6efd; 
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo">
+                                <img src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/images/logo.svg" alt="logo">
+                            </div>
+
+                            <h4>Kayıt Ol</h4>
+                            <h6 class="font-weight-light">Sadece 1 dakika içinde kaydını tamamla</h6>
+
+                            <form class="pt-3" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Kullanıcı Adınız" asp-for="userName">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-lg" placeholder="Email" asp-for="mail">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Şifreniz" asp-for="password">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Şifre Tekrar" asp-for="passwordConfirm">
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input">
+                                            Tüm şartları okudum & kabul ediyorum
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block font-weight-medium">
+                                        Kayıt Ol
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class="auth-links">
+                                <span>Zaten hesabın var mı?</span>
+                                <a asp-controller="Login" asp-action="Index">Giriş Yap</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/vendors/base/vendor.bundle.base.js"></script>
+    <script src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/js/off-canvas.js"></script>
+    <script src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/js/hoverable-collapse.js"></script>
+    <script src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/js/template.js"></script>
+</body>
+</html>

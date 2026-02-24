@@ -1,0 +1,79 @@
+﻿@model EntityLayer.Concrete.Team
+@{
+    ViewData["Title"] = "EditTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="card-title mb-1">Takım Arkadaşı Güncelle</h4>
+                    <p class="text-muted mb-0" style="font-size:13px;">Seçili personel bilgilerini düzenle.</p>
+                </div>
+
+                <a href="/Team/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                    <i class="mdi mdi-arrow-left mr-1"></i>
+                    Listeye Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x => x.TeamID)
+
+                <div class="form-group">
+                    <label>Adı Soyadı</label>
+                    <span asp-validation-for="PersonName" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="PersonName" />
+                </div>
+
+                <div class="form-group">
+                    <label>Görev</label>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Title" />
+                </div>
+
+                <div class="form-group">
+                    <label>Görsel Yolu</label>
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="ImageUrl" />
+                </div>
+
+                <div class="form-group">
+                    <label>Facebook</label>
+                    <input type="text" class="form-control" asp-for="FacebookUrl" />
+                </div>
+
+                <div class="form-group">
+                    <label>Instagram</label>
+                    <input type="text" class="form-control" asp-for="InstagramUrl" />
+                </div>
+
+                <div class="form-group">
+                    <label>Twitter</label>
+                    <input type="text" class="form-control" asp-for="TwitterUrl" />
+                </div>
+
+                <div class="form-group">
+                    <label>Web sitesi</label>
+                    <input type="text" class="form-control" asp-for="WebsiteUrl" />
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-check-circle-outline mr-1"></i>
+                        Güncelle
+                    </button>
+
+                    <a href="/Team/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline mr-1"></i>
+                        Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

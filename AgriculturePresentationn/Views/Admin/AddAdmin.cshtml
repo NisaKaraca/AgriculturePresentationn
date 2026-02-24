@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewData["Title"] = "Yeni Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h4 class="card-title mb-0">Yeni Admin Girişi</h4>
+                <a href="/Admin/Index" class="btn btn-light btn-sm d-flex align-items-center">
+                    <i class="mdi mdi-arrow-left me-1"></i> Geri Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" class="form-control" placeholder="Kullanıcı adı giriniz" asp-for="Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" class="form-control" placeholder="Şifre giriniz" asp-for="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-info d-flex align-items-center">
+                        <i class="mdi mdi-content-save-outline me-1"></i> Kaydet
+                    </button>
+                    <a href="/Admin/Index" class="btn btn-outline-secondary d-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline me-1"></i> Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

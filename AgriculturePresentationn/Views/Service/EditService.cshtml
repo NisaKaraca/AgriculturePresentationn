@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Service
+@{
+    ViewData["Title"] = "EditService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h4 class="card-title mb-1">Hizmet Düzenleme</h4>
+                    <p class="text-muted mb-0" style="font-size:13px;">Seçili hizmeti güncelleyin.</p>
+                </div>
+
+                <a href="/Service/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                    <i class="mdi mdi-arrow-left mr-1"></i>
+                    Listeye Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x => x.ServiceID)
+
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" asp-for="Title" />
+                </div>
+
+                <div class="form-group">
+                    <label>Görsel</label>
+                    <input type="text" class="form-control" asp-for="Image" />
+                </div>
+
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-check-circle-outline mr-1"></i>
+                        Güncelle
+                    </button>
+
+                    <a href="/Service/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline mr-1"></i>
+                        Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model Product
+@{
+    ViewData["Title"] = "Yeni Ürün";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h4 class="card-title mb-1">Yeni Ürün Ekle</h4>
+                        <p class="text-muted mb-0" style="font-size:13px;">Yeni ürün bilgilerini gir.</p>
+                    </div>
+
+                    <a href="/Product/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                        <i class="mdi mdi-arrow-left mr-1"></i>
+                        Listeye Dön
+                    </a>
+                </div>
+
+                <form method="post">
+                    <div class="form-group">
+                        <label>Ürün Adı</label>
+                        <input type="text" class="form-control" asp-for="Name" placeholder="Örn: Buğday" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Değer</label>
+                        <input type="number" class="form-control" asp-for="Value" placeholder="Örn: 150" />
+                        <span asp-validation-for="Value" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-info btn-sm d-inline-flex align-items-center">
+                            <i class="mdi mdi-content-save-outline mr-1"></i>
+                            Kaydet
+                        </button>
+
+                        <a href="/Product/Index" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+                            <i class="mdi mdi-close-circle-outline mr-1"></i>
+                            Vazgeç
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

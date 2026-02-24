@@ -1,0 +1,74 @@
+﻿@model AgriculturePresentationn.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Admin Giriş</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="~/snow-login-form-starter/css/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+    <section class="w3l-login">
+        <div class="overlay">
+            <div class="wrapper">
+                <div class="logo">
+                    <a class="brand-logo" asp-controller="Login" asp-action="Index">Admin Giriş</a>
+                </div>
+
+                <div class="form-section">
+                    <h3>Hoşgeldiniz</h3>
+
+                    <div asp-validation-summary="All" style="color:#ffb3b3; margin:10px 0;"></div>
+
+                    <form method="post" class="signin-form">
+                        <div class="form-input">
+                            <input type="text" asp-for="username" placeholder="Kullanıcı Adınız" required autofocus />
+                            <span asp-validation-for="username" style="color:#ffb3b3;"></span>
+                        </div>
+
+                        <div class="form-input">
+                            <input type="password" asp-for="password" placeholder="Şifreniz" required />
+                            <span asp-validation-for="password" style="color:#ffb3b3;"></span>
+                        </div>
+
+                        <label class="check-remaind">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <p class="remember">Beni hatırla</p>
+                        </label>
+
+                        <button type="submit" class="btn btn-primary theme-button mt-4">Giriş Yap</button>
+                    </form>
+
+                    <div style="text-align:center; margin-top:18px;">
+                        <span style="color:#fff; opacity:.85;">Hesabın yok mu?</span>
+                        <a asp-controller="Login" asp-action="SignUp"
+                           style="color:#4ea1ff; font-weight:600; margin-left:6px; text-decoration:none;">
+                            Kayıt Ol
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+
+        <div class="copy-right">
+            <p>
+                &copy; @DateTime.Now.Year Snow Login Form. Tüm hakları saklıdır | Design by
+                <a href="http://w3layouts.com/" target="_blank">W3Layouts</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

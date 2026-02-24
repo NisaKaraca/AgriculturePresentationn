@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewData["Title"] = "Admin Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <div>
+                    <h4 class="card-title mb-1">Admin Bilgisi Güncelle</h4>
+                    <p class="text-muted mb-0" style="font-size:13px;">Kullanıcı adı/şifre bilgisini düzenleyebilirsin.</p>
+                </div>
+                <a href="/Admin/Index" class="btn btn-light btn-sm d-flex align-items-center">
+                    <i class="mdi mdi-arrow-left me-1"></i> Geri Dön
+                </a>
+            </div>
+
+            <form class="forms-sample" method="post">
+                <input type="hidden" asp-for="AdminID" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" class="form-control" asp-for="Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Şifre</label>
+                    <input type="password" class="form-control" asp-for="Password" />
+                    <small class="text-muted">Not: Şifreyi değiştirmek istemiyorsan mevcut şifreyi tekrar yaz.</small>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success d-flex align-items-center">
+                        <i class="mdi mdi-check-circle-outline me-1"></i> Güncelle
+                    </button>
+                    <a href="/Admin/Index" class="btn btn-outline-secondary d-flex align-items-center">
+                        <i class="mdi mdi-close-circle-outline me-1"></i> Vazgeç
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
