@@ -2,7 +2,7 @@
 Bu proje, **ASP.NET Core MVC** kullanılarak geliştirilmiş olup, yazılım mimarisi olarak **N-Layer Architecture** prensiplerine uygun şekilde tasarlanmıştır.  
 Projede **Generic Repository Pattern**, **Dependency Injection (DI)** ve **ASP.NET Core Identity** kullanılarak sürdürülebilir ve test edilebilir bir yapı hedeflenmiştir.
 
-## 🚀 Kullanılan Teknolojiler
+## Kullanılan Teknolojiler
 
 - ASP.NET Core MVC
 - Entity Framework Core
@@ -44,7 +44,7 @@ Proje aşağıdaki katmanlardan oluşmaktadır:
 - ViewComponent ile tekrar eden UI bileşenlerinin yönetimi  
 - İş kurallarının Business Layer'da yönetilmesi
 
-## ⚙️ Kurulum
+## Kurulum
 
 1. Projeyi klonlayın:
 
